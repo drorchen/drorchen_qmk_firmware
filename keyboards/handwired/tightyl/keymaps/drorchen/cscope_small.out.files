@@ -1,0 +1,4 @@
+keyboards/handwired/tightyl/config.h
+keyboards/handwired/tightyl/keymaps/drorchen/keymap.c
+keymap.c
+keyboards/handwired/tightyl/tightyl.h
