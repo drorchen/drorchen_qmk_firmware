@@ -45,7 +45,8 @@ enum dc_keys {
 
     // Macros
     DC_ARRW = 0x999,
-    DC_NEQL
+    DC_NEQL,
+    DC_TBSHF,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -58,6 +59,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case DC_NEQL:
             if (record->event.pressed) {
                 SEND_STRING("!=");
+            }
+            break;
+        case DC_TBSHF:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LSFT("\t"));
             }
             break;
         }
@@ -133,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [QWERTY] = LAYOUT(
       _______,   KC_1,   KC_2,     KC_3,    KC_4,       KC_5,                                      KC_6,   KC_7,    KC_8,    KC_9,    KC_0,    _______,
       _______,   KC_Q,   KC_W,     KC_E,    KC_R,       KC_T,                                       KC_Y,   KC_U,    KC_I,    KC_O,    KC_P,    _______,
-      _______,   KC_A,   KC_S,     KC_D,    TD(DC_F),   KC_G,                                       KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, _______,
+      _______,   KC_A,   KC_S,     KC_D,    KC_F,       KC_G,                                       KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, _______,
       _______,   KC_Z,   KC_X,     KC_C,    KC_V,       KC_B,                                       KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______,
                          KC_LGUI,  KC_LALT, KC_LCTL,    DC_TAB, KC_SPACE,                  KC_BSPC, DC_ENT, DC_ESC,  KC_DEL,  KC_QUOT
     ),
@@ -184,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,    KC_PERC,                                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
       _______, KC_1,    KC_2,    KC_3,    KC_4,      KC_5,                                          KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
       _______, KC_SLSH, KC_MINS, KC_EQL,  KC_PLUS,   _______,                                       DC_RAISE,KC_DOT,  _______, _______, _______, _______,
-                        _______, _______, _______,   _______, _______,                    _______,  _______, _______, _______, _______
+                        _______, _______, _______,   DC_TBSFT, _______,                   _______,  _______, _______, _______, _______
     ),
 /*
  * ,-------------------------------------------.                ,-------------------------------------------.

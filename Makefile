@@ -539,7 +539,7 @@ lib/%:
 .PHONY: git-submodule
 git-submodule:
 	git submodule sync --recursive
-	git submodule update --init --recursive --progress
+	git submodule update --init --recursive
 
 ifdef SKIP_VERSION
 SKIP_GIT := yes

@@ -11,6 +11,7 @@
 #define MANUFACTURER    DrorChen
 #define PRODUCT         Dactyl Tight Keyboard
 #define DESCRIPTION     Split
+//#define MASTER_RIGHT    true
 
 /* key matrix size */
 /* Rows are doubled up */
